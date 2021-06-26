@@ -19,7 +19,7 @@
 
 ## How to Use
 
-1. open the Logoly website: [https://logoly.pro/](https://logoly.pro/)
+1. open the Logoly website: [https://PH-logo.fun/](https://PH-logo.fun/)
 2. edit the text in the box
 3. change color & font size as you like
 4. click the **Export** button to download the image
@@ -55,7 +55,7 @@ At the end of this section, I suggest you read the [Contributing Guide](Contribu
 
 ## Releated Project
 
-- [Logoly.pro MiniProgram](https://github.com/GHLandy/logoly-pro)
+- [PH-logo.fun MiniProgram](https://github.com/GHLandy/logoly-pro)
 
 ## Sponsors
 

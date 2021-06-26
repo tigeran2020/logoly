@@ -1,10 +1,11 @@
 <template>
   <div class="about">
-    <h3>Logoly.pro</h3>
-    <p>This project is an open source project, you can find it on <a href="https://github.com/bestony/logoly" target="_blank"> GitHub</a></p>
+    <h3>PH-logo.fun</h3>
+    <p>愉快的玩耍吧，朋友！</p>
   </div>
 </template>
 <style lang="stylus" scoped>
-p
-  color #fff
+p {
+  color: #fff;
+}
 </style>

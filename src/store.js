@@ -5,16 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    prefix:'edit',
-    suffix:'me'
+    prefix: '点我',
+    suffix: '编辑'
   },
   mutations: {
-      updatePrefix(state,text){
-        state.prefix = text
-      },
-      updateSuffix(state,text){
-        state.suffix = text
-      }
+    updatePrefix(state, text) {
+      state.prefix = text
+    },
+    updateSuffix(state, text) {
+      state.suffix = text
+    }
   },
   actions: {
 

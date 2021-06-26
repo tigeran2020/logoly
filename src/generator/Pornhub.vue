@@ -76,7 +76,7 @@
     <div
       class="box"
       v-tooltip="{
-        content: 'Edit the text to create your own logo',
+        content: '编辑文本，创建logo',
         show: true,
         classes: 'tooltipClasses',
       }"
@@ -84,7 +84,11 @@
       <div
         class="editarea"
         id="logo"
-        :style="{ 'font-size': fontSize + 'px', 'background-color': transparentBgColor,'font-family':fontFamily }"
+        :style="{
+          'font-size': fontSize + 'px',
+          'background-color': transparentBgColor,
+          'font-family': fontFamily,
+        }"
       >
         <template v-if="!reverseHighlight">
           <span
@@ -94,19 +98,18 @@
             contenteditable
             spellcheck="false"
           >
-            {{
-            prefixText
-            }}
+            {{ prefixText }}
           </span>
           <!-- HACK: meaningless text: ".", just to split input area, see: #269 -->
-          <span style="font-size: 0;">.</span>
+          <span style="font-size: 0">.</span>
           <span
             class="postfix"
             :style="{ color: suffixColor, 'background-color': postfixBgColor }"
             contenteditable
             @input="updateSuffix"
             spellcheck="false"
-          >{{ suffixText }}</span>
+            >{{ suffixText }}</span
+          >
         </template>
         <template v-else>
           <span
@@ -115,7 +118,8 @@
             contenteditable
             @input="updatePrefix"
             spellcheck="false"
-          >{{ prefixText }}</span>
+            >{{ prefixText }}</span
+          >
           <span
             class="prefix"
             @input="updateSuffix"
@@ -123,9 +127,7 @@
             contenteditable
             spellcheck="false"
           >
-            {{
-            suffixText
-            }}
+            {{ suffixText }}
           </span>
         </template>
       </div>
@@ -135,42 +137,38 @@
       <div
         class="customize-color"
         id="prefixColor"
-        v-tooltip="{ content: 'Pick a color you like', show: true, classes: 'tooltipClasses' }"
+        v-tooltip="{ content: '选个颜色吧', show: true, classes: 'tooltipClasses' }"
       >
         <div>
-          Prefix Text Color: &nbsp;
+          前置文本颜色: &nbsp;
           <input type="color" v-model="prefixColor" />
         </div>
         <div>
-          Suffix Text Color: &nbsp;
+          后置文本颜色: &nbsp;
           <input type="color" v-model="suffixColor" />
         </div>
         <div>
-          Suffix Background Color: &nbsp;
+          后置背景颜色: &nbsp;
           <input type="color" v-model="postfixBgColor" />
         </div>
         <div>
-          Transparent Background: &nbsp;
-          <input
-            type="checkbox"
-            value="transparentBg"
-            v-model="transparentBg"
-          />
+          背景透明: &nbsp;
+          <input type="checkbox" value="transparentBg" v-model="transparentBg" />
         </div>
       </div>
 
       <div class="customize-misc">
         <div>
-          Font Size:
+          字体大小:
           <input type="range" min="30" max="200" v-model="fontSize" />
           {{ fontSize }}px
         </div>
         <div>
-          Font:
-          <FontSelector v-on:update-font="(font)=>fontFamily = font" />
+          字体:
+          <FontSelector v-on:update-font="(font) => (fontFamily = font)" />
         </div>
         <div>
-          Reverse Highlight:
+          反方向:
           <input type="checkbox" v-model="reverseHighlight" />
         </div>
       </div>
@@ -179,13 +177,13 @@
     <div class="download-share">
       <div
         class="download"
-        v-tooltip="{ content: 'Export your own logo', show: true, classes: 'tooltipClasses' }"
+        v-tooltip="{ content: '点击下载', show: true, classes: 'tooltipClasses' }"
         @click="download"
-      >Export</div>
-
-      <div class="share" @click="twitter">
-        <i class="iconfont icon-twitter"></i> Tweet
+      >
+        下载
       </div>
+
+      <!-- <div class="share" @click="twitter"><i class="iconfont icon-twitter"></i> Tweet</div> -->
     </div>
   </div>
 </template>
@@ -210,7 +208,7 @@ export default {
     }
   },
   components: { FontSelector },
-  mounted: function() {
+  mounted: function () {
     //   this.$tours['pornhub'].start()
   },
   methods: {
@@ -225,7 +223,7 @@ export default {
       let image = new Image()
       // 解决跨域 Canvas 污染问题
       image.setAttribute('crossOrigin', 'anonymous')
-      image.onload = function() {
+      image.onload = function () {
         let canvas = document.createElement('canvas')
         canvas.width = image.width
         canvas.height = image.height
@@ -243,14 +241,14 @@ export default {
     download() {
       var that = this
       var node = document.getElementById('logo')
-      domtoimage.toPng(node).then(function(res) {
+      domtoimage.toPng(node).then(function (res) {
         console.log(res)
         that.downloadImage(res, 'logo.png')
       })
     },
     twitter() {
       this.$ga.event('social', 'action', 'twitter', 1)
-      let url = 'https://logoly.pro'
+      let url = 'https://PH-logo.fun'
       let text = encodeURIComponent(`Built with #LogolyPro, by @xiqingongzi ${url}`)
       window.open(`https://twitter.com/intent/tweet?text=${text}`)
     },
