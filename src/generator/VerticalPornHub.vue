@@ -161,10 +161,10 @@
     <div class="download-share">
       <div
         class="download"
-        v-tooltip="{ content: '点击下载', show: true, classes: 'tooltipClasses' }"
+        v-tooltip="{ content: '点击导出图标', show: true, classes: 'tooltipClasses' }"
         @click="download"
       >
-        下载
+        导出图标
       </div>
 
       <!-- <div class="share" @click="twitter"><i class="iconfont icon-twitter"></i> Tweet</div> -->
